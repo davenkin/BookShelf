@@ -9,6 +9,11 @@ public class Client {
         Duck duck = new Duck();
         duck.setWeight(10);
         duck.walk();
+
+        Chicken chicken = new Chicken();
+        chicken.setWeight(20);
+        chicken.setComb("Beautiful comb");
+        chicken.walk();
     }
 
 }
