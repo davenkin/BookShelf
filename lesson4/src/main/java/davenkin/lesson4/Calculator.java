@@ -9,6 +9,6 @@ public class Calculator {
     }
 
     public String concat(String num1, String num2) {
-        return null;
+        return num1 + num2;
     }
 }
