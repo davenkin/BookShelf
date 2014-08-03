@@ -29,4 +29,14 @@ public class BookShelf {
             }
         }).get();
     }
+
+    public List<Book> bookByName(final String name) {
+        return from(books).filter(new Predicate<Book>() {
+            @Override
+            public boolean apply(Book input) {
+                //This "like" search algorithm, there should be a better solution
+                return input.getName().contains(name);
+            }
+        }).toList();
+    }
 }
