@@ -13,4 +13,11 @@ public class CalculatorTest {
         assertEquals("35", result);
     }
 
+    @Test
+    public void shouldAddNumbersConcatly() {
+        Calculator calculator = new Calculator();
+        String result = calculator.concat("12", "23");
+        assertEquals("1223", result);
+    }
+
 }
