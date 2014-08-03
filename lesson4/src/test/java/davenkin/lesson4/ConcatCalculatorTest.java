@@ -21,11 +21,4 @@ public class ConcatCalculatorTest {
     }
 
 
-    @Test
-    public void shouldConcatNumbersBetween1And100() {
-        String result = calculator.add("101", "23");
-        assertEquals("ERROR", result);
-    }
-
-
 }

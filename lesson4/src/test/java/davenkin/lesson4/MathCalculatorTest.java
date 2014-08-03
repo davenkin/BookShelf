@@ -20,11 +20,4 @@ public class MathCalculatorTest {
         assertEquals("35", result);
     }
 
-
-    @Test
-    public void shouldAddNumbersBetween1And100() {
-        String result = mathCalculator.add("101", "23");
-        assertEquals("ERROR", result);
-    }
-
 }
