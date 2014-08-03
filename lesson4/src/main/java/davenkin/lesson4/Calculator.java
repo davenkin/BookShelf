@@ -5,6 +5,6 @@ package davenkin.lesson4;
  */
 public class Calculator {
     public String add(String num1, String num2) {
-        return null;
+        return String.valueOf(Integer.valueOf(num1) + Integer.valueOf(num2));
     }
 }

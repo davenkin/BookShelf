@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class CalculatorTest {
 
     @Test
-    public void shouldAddNumbers() {
+    public void shouldAddNumbersMathematically() {
         Calculator calculator = new Calculator();
         String result = calculator.add("12", "23");
         assertEquals("35", result);
