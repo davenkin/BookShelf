@@ -6,6 +6,9 @@ package davenkin.lesson3;
 public abstract class Animal implements Walkable {
     protected int weight;
 
+    @Override
+    public abstract void walk();
+
     public void setWeight(int weight) {
         this.weight = weight;
     }
