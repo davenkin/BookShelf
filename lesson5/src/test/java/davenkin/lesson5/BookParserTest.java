@@ -24,7 +24,6 @@ public class BookParserTest {
         BookParser bookParser = new BookParser();
         String wrongPrice = "wrongPrice";
         Book book = bookParser.parse("1234,Gone with the wind," + wrongPrice + ",Margaret");
-        assertEquals(book.getIsbn(), "1234");
     }
 
 }

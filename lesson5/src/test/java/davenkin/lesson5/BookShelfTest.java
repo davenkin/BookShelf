@@ -22,10 +22,8 @@ public class BookShelfTest {
     @Test
     public void shouldFindBookByName() {
         BookShelf bookShelf = new BookShelf();
-        Book book = new Book("1234", "Gone with the Wind", 12.0, "Author");
-        Book book1 = new Book("1234", "The tale of two cities", 12.0, "Author");
-        bookShelf.add(book);
-        bookShelf.add(book1);
+        bookShelf.add(new Book("1234", "Gone with the Wind", 12.0, "Author"));
+        bookShelf.add(new Book("1234", "The tale of two cities", 12.0, "Author"));
         assertEquals(bookShelf.size(), 2);
         assertEquals(bookShelf.bookByName("tale").size(), 1);
     }

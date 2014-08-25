@@ -1,0 +1,3 @@
+1234,Gone with the wind,12.0,Margaret
+2345,Jane Eyre,23.0,Bronte
+3421,The tale of two cities,wrongPrice,Dikens
