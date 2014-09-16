@@ -106,9 +106,16 @@ div#footer {
    background-color:yellow;
 }
 
+img {
+height:auto;
+width:auto;
+max-width:500px;
+max-height:500px;
+}
+
 @media only screen and (min-width : 1024px) {
     body {
-       font: 1.5em Arial, Helvetica, sans-serif;
+       font: 1.4em Arial, Helvetica, sans-serif;
     }
 
     div#main-content {
