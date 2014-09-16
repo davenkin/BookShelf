@@ -86,17 +86,21 @@ div#nav #hul li:hover ul {
 
 div#side-bar {
    display: none;
-   width:20%;
-   float:left;
-   background-color:blue;
 }
 
 div#main-content {
-   overflow:auto;
+   overflow:scroll;
    font-size:1.5em;
+   padding:10px;
+}
+
+.weather {
+   display:block;
+   margin: 0 auto;
 }
 
 div#footer {
+   font-size:0.8em;
    text-align:center;
    clear:both;
    background-color:yellow;
@@ -116,12 +120,14 @@ div#footer {
     }
 
     div#side-bar {
-       display: block;
+       display:block;
+       overflow:auto;
+       float:left;
+       background-color:AliceBlue ;
      }
 
-    div#main-content {
-       float:right;
-       width:80%;
+    #nc {
+       background-color:AntiqueWhite;
     }
 }
 

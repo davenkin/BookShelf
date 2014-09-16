@@ -10,5 +10,6 @@ function relocateMainContent() {
 
     document.getElementById("main-content-wrapper").style.paddingTop=topHeight+"px";
     document.getElementById("main-content").style.height=(windowHeight-topHeight)+"px";
+    document.getElementById("side-bar").style.height=(windowHeight-topHeight)+"px";
 }
 
