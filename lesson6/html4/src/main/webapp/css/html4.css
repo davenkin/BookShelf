@@ -1,4 +1,7 @@
 /*reset the default styles from browser*/
+
+html,body{height: 100%;}
+
 html,body,div,ul,h1,h2,h3,h4,h5 {
    padding: 0px;
    margin: 0px;
@@ -6,7 +9,7 @@ html,body,div,ul,h1,h2,h3,h4,h5 {
 }
 
 body {
-   font: 1em Arial, Helvetica, sans-serif;
+   font: 2em Arial, Helvetica, sans-serif;
 }
 
 #top-wrapper {
@@ -21,12 +24,11 @@ body {
 
 #header h2{
    color:white;
-   font-size:3em;
+   font-size:2em;
    padding:20px;
 }
 
 div#nav {
-   overflow:auto;
    background-color:#446CB3;
    list-style-type: none;
 }
@@ -70,30 +72,59 @@ div#nav #hul li ul li a:hover {
 
 
 div#nav #hul li ul li{
-float:none;
+   float:none;
 }
 
 div#nav #hul li ul {
-	position: absolute;
-	left: -999em;
+   position: absolute;
+   left: -999em;
 }
 
 div#nav #hul li:hover ul {
-	left: auto;
+   left: auto;
+}
+
+div#side-bar {
+   display: none;
+   width:20%;
+   float:left;
+   background-color:blue;
 }
 
 div#main-content {
    overflow:auto;
-   background-color:red;
+   font-size:1.5em;
+}
+
+div#footer {
+   text-align:center;
    clear:both;
+   background-color:yellow;
+}
+
+@media only screen and (min-width : 1024px) {
+    body {
+       font: 1.5em Arial, Helvetica, sans-serif;
+    }
+
+    div#main-content {
+       font-size:1em;
+    }
+
+    #header h2{
+       font-size:3em;
+    }
+
+    div#side-bar {
+       display: block;
+     }
+
+    div#main-content {
+       float:right;
+       width:80%;
+    }
 }
 
 
-div#test2 {
-   background-color:blue;
-   padding:10px;
-   margin:10px;
-   height:1000px;
-}
 
 
