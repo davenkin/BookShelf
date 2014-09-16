@@ -1,0 +1,99 @@
+/*reset the default styles from browser*/
+html,body,div,ul,h1,h2,h3,h4,h5 {
+   padding: 0px;
+   margin: 0px;
+   border:0px;
+}
+
+body {
+   font: 1em Arial, Helvetica, sans-serif;
+}
+
+#top-wrapper {
+   width:100%;
+   position:fixed;
+   top:0px;
+}
+
+#header {
+   background-color:#00bccd;
+}
+
+#header h2{
+   color:white;
+   font-size:3em;
+   padding:20px;
+}
+
+div#nav {
+   overflow:auto;
+   background-color:#446CB3;
+   list-style-type: none;
+}
+
+div#nav #hul {
+   overflow:auto;
+}
+
+div#nav #hul li {
+   display:inline;
+   float:left;
+}
+
+div#nav #hul li a, a:link, a:visited, a:active, a:hover {
+   text-decoration: none;
+}
+
+div#nav #hul li a {
+   padding:12px;
+   padding:12px;
+   color:#eee;
+   display:block;
+   background-color:#446CB3;
+}
+
+
+div#nav #hul li:hover a {
+   background-color:yellow;
+   color:black;
+}
+
+div#nav #hul li ul li a {
+   background-color:yellow;
+   color:black;
+}
+
+div#nav #hul li ul li a:hover {
+   background-color:#446CB3;
+   color:white;
+}
+
+
+div#nav #hul li ul li{
+float:none;
+}
+
+div#nav #hul li ul {
+	position: absolute;
+	left: -999em;
+}
+
+div#nav #hul li:hover ul {
+	left: auto;
+}
+
+div#main-content {
+   overflow:auto;
+   background-color:red;
+   clear:both;
+}
+
+
+div#test2 {
+   background-color:blue;
+   padding:10px;
+   margin:10px;
+   height:1000px;
+}
+
+
