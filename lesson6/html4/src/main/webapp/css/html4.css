@@ -91,7 +91,6 @@ div#side-bar {
 div#main-content {
    overflow:scroll;
    font-size:1.5em;
-   padding:10px;
 }
 
 .weather {
@@ -111,6 +110,7 @@ height:auto;
 width:auto;
 max-width:500px;
 max-height:500px;
+margin:10px;
 }
 
 @media only screen and (min-width : 1024px) {
