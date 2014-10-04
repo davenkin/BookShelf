@@ -26,4 +26,14 @@
         <url-pattern>/helloworldjsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddBookServlet</servlet-name>
+        <servlet-class>bookshelf.servlet.AddBookServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddBookServlet</servlet-name>
+        <url-pattern>/addbook</url-pattern>
+    </servlet-mapping>
+
 </web-app>
