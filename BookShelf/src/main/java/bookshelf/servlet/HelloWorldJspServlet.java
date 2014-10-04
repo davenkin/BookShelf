@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class HelloWorldJspServlet extends HttpServlet {
 
-    public void doGet(HttpServletRequest request,
+    public void doGet(HttpServletequest request,
                       HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("hello", "Hello World!");
