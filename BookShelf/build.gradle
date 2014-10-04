@@ -13,10 +13,7 @@ repositories {
 }
 
 sourceSets {
-    acceptanceTest {
-        compileClasspath += main.output + test.output
-        runtimeClasspath += main.output + test.output
-    }
+    acceptanceTest
 }
 
 configurations {
@@ -34,7 +31,7 @@ dependencies {
 
 task acceptanceTest(type: Test) {
     testClassesDir = sourceSets.acceptanceTest.output.classesDir
-    classpath = sourceSets.acceptanceTest.runtimeClasspath
+    classpath = sourceSets.acceptanceTest.runtimeClasspath + sourceSets.main.runtimeClasspath
 
     doFirst {
         jettyRun.daemon = true
