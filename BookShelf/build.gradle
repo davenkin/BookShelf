@@ -11,4 +11,31 @@ repositories {
 
 dependencies {
     compile 'javax.servlet:servlet-api:2.5'
+    testCompile 'junit:junit:4.11'
+}
+
+sourceSets {
+    acceptanceTest {
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+    }
+}
+
+configurations {
+    acceptanceTestCompile.extendsFrom testCompile
+    acceptanceTestRuntime.extendsFrom testRuntime
+}
+
+task acceptanceTest(type: Test) {
+    testClassesDir = sourceSets.acceptanceTest.output.classesDir
+    classpath = sourceSets.acceptanceTest.runtimeClasspath
+}
+
+check.dependsOn acceptanceTest
+
+idea {
+    module {
+        testSourceDirs += file('src/acceptanceTest/java')
+        testSourceDirs += file('src/acceptanceTest/resources')
+    }
 }
