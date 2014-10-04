@@ -16,4 +16,14 @@
         <url-pattern>/helloworld</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>HelloWorldJsp</servlet-name>
+        <servlet-class>bookshelf.servlet.HelloWorldJspServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloWorldJsp</servlet-name>
+        <url-pattern>/helloworldjsp</url-pattern>
+    </servlet-mapping>
+
 </web-app>
