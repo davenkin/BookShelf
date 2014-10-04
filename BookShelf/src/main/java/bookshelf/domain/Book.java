@@ -16,6 +16,10 @@ public class Book {
         this.author = author;
     }
 
+    public void changePriceTo(double newPrice) {
+        this.price = newPrice;
+    }
+
     public String getIsbn() {
         return isbn;
     }
