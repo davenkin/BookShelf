@@ -16,7 +16,7 @@ public class HelloWorldJspServlet extends HttpServlet {
                       HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("hello", "Hello World!");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("HelloWorld.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/HelloWorld.jsp");
         dispatcher.forward(request, response);
     }
 }
