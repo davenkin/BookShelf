@@ -1,17 +1,15 @@
 apply plugin: 'idea'
 apply plugin: 'jetty'
 
+[jettyRun, jettyRunWar, jettyStop]*.stopPort = 8081
+[jettyRun, jettyRunWar, jettyStop]*.stopKey = 'stopKey'
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    compile 'javax.servlet:servlet-api:2.5'
-    testCompile 'junit:junit:4.11'
 }
 
 sourceSets {
@@ -26,9 +24,26 @@ configurations {
     acceptanceTestRuntime.extendsFrom testRuntime
 }
 
+
+dependencies {
+    compile 'javax.servlet:servlet-api:2.5'
+    testCompile 'junit:junit:4.11'
+    acceptanceTestCompile 'org.seleniumhq.selenium:selenium-java:2.42.0'
+}
+
+
 task acceptanceTest(type: Test) {
     testClassesDir = sourceSets.acceptanceTest.output.classesDir
     classpath = sourceSets.acceptanceTest.runtimeClasspath
+
+    doFirst {
+        jettyRun.daemon = true
+        jettyRun.execute()
+    }
+
+    doLast {
+        jettyStop.execute()
+    }
 }
 
 check.dependsOn acceptanceTest
@@ -37,5 +52,7 @@ idea {
     module {
         testSourceDirs += file('src/acceptanceTest/java')
         testSourceDirs += file('src/acceptanceTest/resources')
+        scopes.TEST.plus += configurations.acceptanceTestCompile
+        scopes.TEST.plus += configurations.acceptanceTestRuntime
     }
 }
