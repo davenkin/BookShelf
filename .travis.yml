@@ -1,3 +1,8 @@
 language: java
+
 jdk:
   - openjdk7
+
+notifications:
+  email:
+    - davenkin@gamil.com
