@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/davenkin/BookShelf.svg?branch=master)](https://travis-ci.org/davenkin/BookShelf)
 The BookShelf sample application. (Code for lesson7-lesson30 is covered in BookShelf folder)
 
+BookShelf:这个是最终的涵盖所有知识点的示例网站
+
 Lesson1: Java Web软件开发概论
 
 Lesson2: 命令行编译运行Java程序
