@@ -9,19 +9,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 /**
  * Created by Davenkin on 10/4/14.
  */
-public class HelloWorldAcceptanceTest {
-
-    private WebDriver driver;
-
-    @Before
-    public void setUp() {
-        driver = new HtmlUnitDriver();
-    }
-
-    @After
-    public void cleanUp() {
-        driver.quit();
-    }
+public class HelloWorldAcceptanceTest extends AbstractAcceptanceTest{
 
     @Test
     public void testHelloWorld() {
