@@ -1,5 +1,7 @@
 package bookshelf;
 
+import bookshelf.page.AddBookPage;
+import bookshelf.page.BookShelfHomePage;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -7,9 +9,11 @@ import org.openqa.selenium.WebDriver;
  */
 public class User {
     private BookShelfHomePage bookShelfHomePage;
+    private AddBookPage addBookPage;
 
     public User(WebDriver webDriver) {
         bookShelfHomePage = new BookShelfHomePage(webDriver);
+        addBookPage = new AddBookPage(webDriver);
     }
 
 
@@ -19,5 +23,13 @@ public class User {
 
     public void shouldSeeDisplayed(String content) {
         bookShelfHomePage.verifyContentExist(content);
+    }
+
+    public void visitAddBookPage() {
+        addBookPage.open();
+    }
+
+    public void shouldSeeDisplayedOnAddBookPage(String content) {
+        addBookPage.verifyContentExist(content);
     }
 }
