@@ -54,3 +54,27 @@ margin-top:10px;
 #submitLink:hover {
     background: blue;
 }
+
+#books {
+margin:0px;
+}
+
+#books p {
+margin:0px;
+}
+
+#books .type1 {
+background:red;
+}
+
+#books .type2 {
+background:blue;
+}
+
+.bookRow {
+color:white;
+padding-bottom:10px;
+}
+
+#addBookLink {
+float:right;}

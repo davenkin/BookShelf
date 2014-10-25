@@ -1,5 +1,6 @@
 package bookshelf.servlet;
 
+import bookshelf.domain.Book;
 import bookshelf.domain.BookRepository;
 import bookshelf.servlet.listener.RepositoryInitiator;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Davenkin on 10/3/14.
@@ -18,8 +20,8 @@ public class HomeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException {
-        int count = getBookRepository().allBooks().size();
-        request.setAttribute("count", count);
+        List<Book> books = getBookRepository().allBooks();
+        request.setAttribute("books", books);
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/Home.jsp");
         dispatcher.forward(request, response);
     }
