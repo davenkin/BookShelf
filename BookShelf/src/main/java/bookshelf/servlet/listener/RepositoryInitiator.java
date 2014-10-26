@@ -1,5 +1,7 @@
 package bookshelf.servlet.listener;
 
+import bookshelf.domain.BookRepository;
+import bookshelf.domain.HsqlBookRepository;
 import bookshelf.domain.ListBasedBookRepository;
 
 import javax.servlet.ServletContextEvent;
@@ -14,7 +16,7 @@ public class RepositoryInitiator implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ListBasedBookRepository repository = new ListBasedBookRepository();
+        BookRepository repository = new HsqlBookRepository();
         sce.getServletContext().setAttribute(BOOK_REPOSITORY, repository);
     }
 

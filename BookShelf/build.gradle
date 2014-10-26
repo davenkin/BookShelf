@@ -25,6 +25,7 @@ configurations {
 dependencies {
     compile 'javax.servlet:servlet-api:2.5'
     compile 'com.google.guava:guava:18.0'
+    compile 'org.hsqldb:hsqldb:2.3.0'
     testCompile 'junit:junit:4.11'
     acceptanceTestCompile 'org.seleniumhq.selenium:selenium-java:2.42.0'
 }
