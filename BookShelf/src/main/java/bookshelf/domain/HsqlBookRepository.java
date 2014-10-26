@@ -1,9 +1,10 @@
 package bookshelf.domain;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.hsqldb.Server;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 public class HsqlBookRepository implements BookRepository {
     private static Server hsqlServer = null;
+    private static DataSource dataSource = null;
 
     static {
         hsqlServer = new Server();
@@ -22,10 +24,16 @@ public class HsqlBookRepository implements BookRepository {
         hsqlServer.setDatabaseName(0, "xdb");
         hsqlServer.setDatabasePath(0, "file:testdb");
         hsqlServer.start();
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setDriverClassName("org.hsqldb.jdbcDriver");
+        basicDataSource.setUrl("jdbc:hsqldb:hsql://localhost/xdb");
+        basicDataSource.setUsername("sa");
+        basicDataSource.setPassword("");
+        dataSource = basicDataSource;
+
         Connection connection = null;
         try {
-            Class.forName("org.hsqldb.jdbcDriver");
-            connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "sa", "");
+            connection = dataSource.getConnection();
             connection.prepareStatement("drop table books if exists;").execute();
             connection.prepareStatement("create table books (isbn varchar(100), name varchar(100),price double,author varchar(100));").execute();
         } catch (Exception e) {
@@ -51,7 +59,7 @@ public class HsqlBookRepository implements BookRepository {
     public void addBook(Book book) {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "sa", "");
+            connection = dataSource.getConnection();
             connection.prepareStatement("insert into books values ('" + book.getIsbn() + "','" + book.getName() + "'," + book.getPrice() + ",'" + book.getAuthor() + "');").execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,7 +77,7 @@ public class HsqlBookRepository implements BookRepository {
     public Book bookByIsbn(String isbn) {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "sa", "");
+            connection = dataSource.getConnection();
             ResultSet resultSet = connection.prepareStatement("select * from books where isbn=" + "'" + isbn + "'").executeQuery();
             ArrayList<Book> books = new ArrayList<Book>();
 
@@ -98,7 +106,7 @@ public class HsqlBookRepository implements BookRepository {
     public List<Book> allBooks() {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "sa", "");
+            connection = dataSource.getConnection();
             ResultSet resultSet = connection.prepareStatement("select * from books").executeQuery();
             ArrayList<Book> books = new ArrayList<Book>();
 
