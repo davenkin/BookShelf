@@ -24,6 +24,7 @@
 <div class="bookRow ${varclass}">
 <p>No.${index.index+1}</p>
 <p>Name:${aBook.name}</p>
+<p>Name:${aBook.isbn}</p>
 <p>Price:${aBook.price}</p>
 <p>Author:${aBook.author}</p>
 </div>

@@ -1,6 +1,7 @@
 package bookshelf.page;
 
 import bookshelf.page.AbstractPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -17,4 +18,7 @@ public class AddBookPage extends AbstractPage {
         return "addbook";
     }
 
+    public void clickAdd() {
+        driver.findElement(By.id("submitLink")).click();
+    }
 }

@@ -1,5 +1,6 @@
 package bookshelf.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertTrue;
@@ -23,4 +24,10 @@ public abstract class AbstractPage {
     public void verifyContentExist(String content) {
         assertTrue(driver.getPageSource().contains(content));
     }
+
+    public void fillInput(String id, String value) {
+        driver.findElement(By.id(id)).sendKeys(value);
+    }
+
+
 }

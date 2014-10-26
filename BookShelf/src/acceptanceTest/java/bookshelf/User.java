@@ -29,7 +29,15 @@ public class User {
         addBookPage.open();
     }
 
-    public void shouldSeeDisplayedOnAddBookPage(String content) {
-        addBookPage.verifyContentExist(content);
+    public void addBook(String isbn, String name, double price, String author) {
+        addBookPage.fillInput("bookIsbn", isbn);
+        addBookPage.fillInput("bookName", name);
+        addBookPage.fillInput("bookPrice", String.valueOf(price));
+        addBookPage.fillInput("bookAuthor", author);
+        addBookPage.clickAdd();
+    }
+
+    public void canSeeBookAdded(String isbn) {
+        bookShelfHomePage.verifyContentExist(isbn);
     }
 }

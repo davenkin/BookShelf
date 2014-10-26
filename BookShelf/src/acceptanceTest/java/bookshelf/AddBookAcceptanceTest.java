@@ -11,6 +11,7 @@ public class AddBookAcceptanceTest extends AbstractAcceptanceTest {
     public void shouldVisitAddBookPage() {
         User user = new User(driver);
         user.visitAddBookPage();
-        user.shouldSeeDisplayedOnAddBookPage("Add a Book:");
+        user.addBook("ISBN-001","Gone with the wind",123.3,"Author-Who");
+        user.canSeeBookAdded("ISBN-001");
     }
 }
