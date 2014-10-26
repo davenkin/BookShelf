@@ -30,23 +30,14 @@ public class HsqlBookRepository implements BookRepository {
         basicDataSource.setUsername("sa");
         basicDataSource.setPassword("");
         dataSource = basicDataSource;
+        doInConnection(new DbOperation() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                connection.prepareStatement("drop table books if exists;").execute();
+                connection.prepareStatement("create table books (isbn varchar(100), name varchar(100),price double,author varchar(100));").execute();
 
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            connection.prepareStatement("drop table books if exists;").execute();
-            connection.prepareStatement("create table books (isbn varchar(100), name varchar(100),price double,author varchar(100));").execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            assert connection != null;
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
-        }
-
+        });
     }
 
     public void finalize() throws Throwable {
@@ -56,68 +47,61 @@ public class HsqlBookRepository implements BookRepository {
 
 
     @Override
-    public void addBook(Book book) {
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            connection.prepareStatement("insert into books values ('" + book.getIsbn() + "','" + book.getName() + "'," + book.getPrice() + ",'" + book.getAuthor() + "');").execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            assert connection != null;
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+    public void addBook(final Book book) {
+        doInConnection(new DbOperation() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                connection.prepareStatement("insert into books values ('" + book.getIsbn() + "','" + book.getName() + "'," + book.getPrice() + ",'" + book.getAuthor() + "');").execute();
             }
-        }
+        });
     }
 
     @Override
-    public Book bookByIsbn(String isbn) {
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            ResultSet resultSet = connection.prepareStatement("select * from books where isbn=" + "'" + isbn + "'").executeQuery();
-            ArrayList<Book> books = new ArrayList<Book>();
+    public Book bookByIsbn(final String isbn) {
+        final ArrayList<Book> books = new ArrayList<Book>();
+        doInConnection(new DbOperation() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                ResultSet resultSet = connection.prepareStatement("select * from books where isbn=" + "'" + isbn + "'").executeQuery();
 
-            while (resultSet.next()) {
-                final String aIsbn = resultSet.getString("isbn");
-                final String name = resultSet.getString("name");
-                final double price = resultSet.getDouble("price");
-                final String author = resultSet.getString("author");
-                books.add(new Book(aIsbn, name, price, author));
+                while (resultSet.next()) {
+                    final String aIsbn = resultSet.getString("isbn");
+                    final String name = resultSet.getString("name");
+                    final double price = resultSet.getDouble("price");
+                    final String author = resultSet.getString("author");
+                    books.add(new Book(aIsbn, name, price, author));
+                }
             }
-            return books.get(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            assert connection != null;
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
+        });
+        return books.get(0);
     }
 
     @Override
     public List<Book> allBooks() {
+        final ArrayList<Book> books = new ArrayList<Book>();
+        doInConnection(new DbOperation() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                ResultSet resultSet = connection.prepareStatement("select * from books").executeQuery();
+
+                while (resultSet.next()) {
+                    final String isbn = resultSet.getString("isbn");
+                    final String name = resultSet.getString("name");
+                    final double price = resultSet.getDouble("price");
+                    final String author = resultSet.getString("author");
+                    books.add(new Book(isbn, name, price, author));
+                }
+            }
+        });
+
+        return books;
+    }
+
+    private static void doInConnection(DbOperation dbOperation) {
         Connection connection = null;
         try {
-            connection = dataSource.getConnection();
-            ResultSet resultSet = connection.prepareStatement("select * from books").executeQuery();
-            ArrayList<Book> books = new ArrayList<Book>();
-
-            while (resultSet.next()) {
-                final String isbn = resultSet.getString("isbn");
-                final String name = resultSet.getString("name");
-                final double price = resultSet.getDouble("price");
-                final String author = resultSet.getString("author");
-                books.add(new Book(isbn, name, price, author));
-            }
-            return books;
+            connection=dataSource.getConnection();
+            dbOperation.execute(connection);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -128,7 +112,11 @@ public class HsqlBookRepository implements BookRepository {
                 e.printStackTrace();
             }
         }
-
-        return null;
     }
+
+    interface DbOperation {
+        void execute(Connection connection) throws SQLException;
+    }
+
+
 }
