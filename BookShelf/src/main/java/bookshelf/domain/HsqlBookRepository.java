@@ -18,18 +18,9 @@ public class HsqlBookRepository implements BookRepository {
     private static DataSource dataSource = null;
 
     static {
-        hsqlServer = new Server();
-        hsqlServer.setLogWriter(null);
-        hsqlServer.setSilent(true);
-        hsqlServer.setDatabaseName(0, "xdb");
-        hsqlServer.setDatabasePath(0, "file:testdb");
+        hsqlServer = createHsqlServer();
         hsqlServer.start();
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("org.hsqldb.jdbcDriver");
-        basicDataSource.setUrl("jdbc:hsqldb:hsql://localhost/xdb");
-        basicDataSource.setUsername("sa");
-        basicDataSource.setPassword("");
-        dataSource = basicDataSource;
+        dataSource = getBasicDataSource();
         doInConnection(new DbOperation() {
             @Override
             public void execute(Connection connection) throws SQLException {
@@ -38,6 +29,25 @@ public class HsqlBookRepository implements BookRepository {
 
             }
         });
+    }
+
+    private static Server createHsqlServer() {
+        Server hsqlServer = new Server();
+        hsqlServer.setLogWriter(null);
+        hsqlServer.setSilent(true);
+        hsqlServer.setDatabaseName(0, "xdb");
+        hsqlServer.setDatabasePath(0, "file:testdb");
+        return hsqlServer;
+
+    }
+
+    private static BasicDataSource getBasicDataSource() {
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setDriverClassName("org.hsqldb.jdbcDriver");
+        basicDataSource.setUrl("jdbc:hsqldb:hsql://localhost/xdb");
+        basicDataSource.setUsername("sa");
+        basicDataSource.setPassword("");
+        return basicDataSource;
     }
 
     public void finalize() throws Throwable {
@@ -100,7 +110,7 @@ public class HsqlBookRepository implements BookRepository {
     private static void doInConnection(DbOperation dbOperation) {
         Connection connection = null;
         try {
-            connection=dataSource.getConnection();
+            connection = dataSource.getConnection();
             dbOperation.execute(connection);
         } catch (Exception e) {
             e.printStackTrace();
