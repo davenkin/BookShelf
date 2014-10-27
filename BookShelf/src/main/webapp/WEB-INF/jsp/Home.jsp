@@ -7,6 +7,7 @@
 </head>
 <body>
 <a id="addBookLink" href="addbook">Add a book</a>
+<h1 id="header">BookShelf</h1>
 <div id="books">
  <c:forEach var="aBook" items="${books}" varStatus="index">
  <c:set var="classPicker" scope="page" value="${index.index%2}"/>

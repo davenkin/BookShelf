@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+  <h1 id="header">BookShelf</h1>
    <div id="addBook">
       <h2 id="addBookTitle">Add a Book:</h2>
       <form id="addBookForm" method="post" name="addBookForm">
