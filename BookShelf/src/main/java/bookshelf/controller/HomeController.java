@@ -24,11 +24,10 @@ public class HomeController {
     private BookRepository bookRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) throws ServletException, IOException {
+    public String home(Model model)  {
         List<Book> books = bookRepository.allBooks();
         model.addAttribute("books", books);
         return "Home";
     }
-
 
 }

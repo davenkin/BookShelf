@@ -25,7 +25,7 @@ public class User {
     }
 
     public void canSeeBookAddedOnSpringHomePage(String isbn) {
-        homePage.verifyContentExist(isbn);
+        homePage.verifyBookExist(isbn);
     }
 
     public void visitHomePage() {

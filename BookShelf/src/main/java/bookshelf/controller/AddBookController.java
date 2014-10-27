@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
-
 /**
  * Created by Davenkin on 10/27/14.
  */
@@ -27,7 +25,7 @@ public class AddBookController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView addBook(@ModelAttribute Book book) throws IOException {
+    public ModelAndView addBook(@ModelAttribute Book book) {
         bookRepository.addBook(book);
         return new ModelAndView("redirect:/");
 

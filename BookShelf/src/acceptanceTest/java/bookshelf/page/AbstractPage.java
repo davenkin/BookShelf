@@ -21,8 +21,8 @@ public abstract class AbstractPage {
 
     protected abstract String getRelativePath();
 
-    public void verifyContentExist(String content) {
-        assertTrue(driver.getPageSource().contains(content));
+    public void verifyBookExist(String content) {
+        assertTrue(driver.findElement(By.id("books")).getText().contains(content));
     }
 
     public void fillInput(String id, String value) {

@@ -9,4 +9,5 @@ testdb.*
 build
 out
 .gradle
+todo.txt
 
