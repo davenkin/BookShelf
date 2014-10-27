@@ -6,60 +6,6 @@
 
     <display-name>BookShelf</display-name>
 
-    <listener>
-        <listener-class>bookshelf.servlet.listener.SpringContextInitiator</listener-class>
-    </listener>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.js</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.css</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Home</servlet-name>
-        <servlet-class>bookshelf.servlet.HomeServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Home</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>HelloWorld</servlet-name>
-        <servlet-class>bookshelf.servlet.HelloWorldServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HelloWorld</servlet-name>
-        <url-pattern>/helloworld</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>HelloWorldJsp</servlet-name>
-        <servlet-class>bookshelf.servlet.HelloWorldJspServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HelloWorldJsp</servlet-name>
-        <url-pattern>/helloworldjsp</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>AddBookServlet</servlet-name>
-        <servlet-class>bookshelf.servlet.AddBookServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AddBookServlet</servlet-name>
-        <url-pattern>/addbook</url-pattern>
-    </servlet-mapping>
-
     <servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -68,7 +14,7 @@
 
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
-        <url-pattern>/spring/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 

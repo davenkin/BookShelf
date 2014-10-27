@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by Davenkin on 10/23/14.
  */
-public class BookShelfHomePage extends AbstractPage {
+public class HomePage extends AbstractPage {
 
-    public BookShelfHomePage(WebDriver webDriver) {
+    public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
 
