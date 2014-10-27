@@ -9,7 +9,6 @@
 </head>
 
 <body>
-   <%@include file="Header.jsp" %>
 
    <div id="addBook">
       <h2 id="addBookTitle">Add a Book:</h2>

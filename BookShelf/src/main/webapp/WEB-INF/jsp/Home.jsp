@@ -7,7 +7,6 @@
 </head>
 <body>
 <a id="addBookLink" href="addbook">Add a book</a>
-   <%@include file="Header.jsp" %>
 <div id="books">
  <c:forEach var="aBook" items="${books}" varStatus="index">
  <c:set var="classPicker" scope="page" value="${index.index%2}"/>
