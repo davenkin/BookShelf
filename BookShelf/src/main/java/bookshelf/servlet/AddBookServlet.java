@@ -2,7 +2,8 @@ package bookshelf.servlet;
 
 import bookshelf.domain.Book;
 import bookshelf.domain.BookRepository;
-import bookshelf.servlet.listener.RepositoryInitiator;
+import bookshelf.servlet.listener.SpringContextInitiator;
+import org.springframework.context.ApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,6 +38,7 @@ public class AddBookServlet extends HttpServlet {
     }
 
     private BookRepository getBookRepository() {
-        return (BookRepository) getServletContext().getAttribute(RepositoryInitiator.BOOK_REPOSITORY);
+        final ApplicationContext context = (ApplicationContext) getServletContext().getAttribute(SpringContextInitiator.SPRING_CONTEXT);
+        return (BookRepository) context.getBean("bookRepository");
     }
 }

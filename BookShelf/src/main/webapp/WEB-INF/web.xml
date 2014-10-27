@@ -7,7 +7,7 @@
     <display-name>BookShelf</display-name>
 
     <listener>
-        <listener-class>bookshelf.servlet.listener.RepositoryInitiator</listener-class>
+        <listener-class>bookshelf.servlet.listener.SpringContextInitiator</listener-class>
     </listener>
 
     <servlet-mapping>

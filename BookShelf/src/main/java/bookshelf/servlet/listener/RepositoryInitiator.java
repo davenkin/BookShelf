@@ -2,7 +2,6 @@ package bookshelf.servlet.listener;
 
 import bookshelf.domain.BookRepository;
 import bookshelf.domain.HsqlBookRepository;
-import bookshelf.domain.ListBasedBookRepository;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
