@@ -12,6 +12,7 @@ public class User {
     private AddBookPage addBookPage;
     private SpringAddBookPage springAddBookPage;
     private JspHelloWorldPage jspHelloWorldPage;
+    private SpringBookShelfHomePage springBookShelfHomePage;
 
     public User(WebDriver webDriver) {
         bookShelfHomePage = new BookShelfHomePage(webDriver);
@@ -19,6 +20,7 @@ public class User {
         helloWorldPage = new HelloWorldPage(webDriver);
         springAddBookPage = new SpringAddBookPage(webDriver);
         jspHelloWorldPage = new JspHelloWorldPage(webDriver);
+        springBookShelfHomePage = new SpringBookShelfHomePage(webDriver);
     }
 
 
@@ -52,5 +54,9 @@ public class User {
 
     public void visitJspHelloWorldPage() {
         jspHelloWorldPage.open();
+    }
+
+    public void canSeeBookAddedOnSpringHomePage(String isbn) {
+        springBookShelfHomePage.verifyContentExist(isbn);
     }
 }

@@ -1,6 +1,5 @@
 package bookshelf.page;
 
-import bookshelf.page.AbstractPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

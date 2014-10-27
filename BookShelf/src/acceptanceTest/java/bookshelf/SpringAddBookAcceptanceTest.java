@@ -12,6 +12,6 @@ public class SpringAddBookAcceptanceTest extends AbstractAcceptanceTest {
         User user = new User(driver);
         user.visitSpringAddBookPage();
         user.addBook("ISBN-002", "Gone with the wind", 123.3, "Author-Who");
-        user.canSeeBookAdded("ISBN-002");
+        user.canSeeBookAddedOnSpringHomePage("ISBN-002");
     }
 }

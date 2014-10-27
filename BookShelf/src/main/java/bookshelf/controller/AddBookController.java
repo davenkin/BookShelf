@@ -35,7 +35,7 @@ public class AddBookController {
         String author = request.getParameter("author");
 
         bookRepository.addBook(new Book(isbn, name, price, author));
-        response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/"));
+        response.sendRedirect("home");
 
     }
 

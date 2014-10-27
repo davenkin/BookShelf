@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
  * Created by Davenkin on 10/23/14.
  */
 public class JspHelloWorldPage extends AbstractPage {
-    private WebDriver driver;
 
     public JspHelloWorldPage(WebDriver webDriver) {
         super(webDriver);
