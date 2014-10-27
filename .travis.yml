@@ -9,4 +9,4 @@ notifications:
 
 
 script:
-  - ./gradlew clean build
+  - ./gradlew clean build -Djava.io.tmpdir=tmp
