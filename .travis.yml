@@ -6,3 +6,6 @@ jdk:
 notifications:
   email:
     - davenkin@gmail.com
+
+script:
+   - ./gradlew clean build
