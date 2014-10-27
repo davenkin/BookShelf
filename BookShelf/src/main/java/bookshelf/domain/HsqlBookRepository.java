@@ -2,6 +2,7 @@ package bookshelf.domain;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hsqldb.Server;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * Created by Davenkin on 10/26/14.
  */
+@Repository
 public class HsqlBookRepository implements BookRepository {
     private static Server hsqlServer = null;
     private static DataSource dataSource = null;

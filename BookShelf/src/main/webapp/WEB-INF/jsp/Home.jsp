@@ -3,12 +3,11 @@
 <html>
 <head>
     <title>BookShelf Home Page</title>
-        <script src="js/addBook.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="<c:url value='/css/style.css' />"/>
 </head>
 <body>
 <a id="addBookLink" href="addbook">Add a book</a>
-   <%@include file="header.jsp" %>
+   <%@include file="Header.jsp" %>
 <div id="books">
  <c:forEach var="aBook" items="${books}" varStatus="index">
  <c:set var="classPicker" scope="page" value="${index.index%2}"/>

@@ -1,13 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+
 <html>
 <head>
     <title>Add a Book</title>
-    <script src="js/addBook.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="<c:url value='/css/style.css' />"/>
+    <script src="<c:url value='/js/addBook.js' />"></script>
 </head>
 
 <body>
-   <%@include file="header.jsp" %>
+   <%@include file="Header.jsp" %>
 
    <div id="addBook">
       <h2 id="addBookTitle">Add a Book:</h2>

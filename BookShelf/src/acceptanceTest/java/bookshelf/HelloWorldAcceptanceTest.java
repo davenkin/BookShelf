@@ -14,7 +14,7 @@ public class HelloWorldAcceptanceTest extends AbstractAcceptanceTest{
     @Test
     public void testHelloWorld() {
         User user = new User(driver);
-        user.visitBookShelfHomePage();
+        user.visitHelloWorldPage();
         user.shouldSeeDisplayed("Hello World!");
     }
 }
