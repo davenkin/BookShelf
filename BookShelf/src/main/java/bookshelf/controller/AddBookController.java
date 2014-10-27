@@ -24,7 +24,7 @@ public class AddBookController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String displayAddBook() {
-        return "/WEB-INF/jsp/AddBook.jsp";
+        return "AddBook";
     }
 
     @RequestMapping(method = RequestMethod.POST)

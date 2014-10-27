@@ -27,7 +27,7 @@ public class HomeController {
     public String home(Model model) throws ServletException, IOException {
         List<Book> books = bookRepository.allBooks();
         model.addAttribute("books", books);
-        return "/WEB-INF/jsp/Home.jsp";
+        return "Home";
     }
 
 
