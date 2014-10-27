@@ -1,5 +1,6 @@
 package bookshelf.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -14,6 +15,10 @@ public class HomePage extends AbstractPage {
     @Override
     protected String getRelativePath() {
         return "";
+    }
+
+    public void goToAddBookPage(){
+        driver.findElement(By.id("addBookLink")).click();
     }
 
 }

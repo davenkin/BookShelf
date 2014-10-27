@@ -24,11 +24,15 @@ public class User {
         addBookPage.clickAdd();
     }
 
-    public void visitSpringAddBookPage() {
-        addBookPage.open();
-    }
-
     public void canSeeBookAddedOnSpringHomePage(String isbn) {
         homePage.verifyContentExist(isbn);
+    }
+
+    public void visitHomePage() {
+        homePage.open();
+    }
+
+    public void goToAddBookPage() {
+        homePage.goToAddBookPage();
     }
 }
