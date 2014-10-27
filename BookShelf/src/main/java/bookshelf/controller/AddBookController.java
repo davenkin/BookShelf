@@ -4,12 +4,11 @@ import bookshelf.domain.Book;
 import bookshelf.domain.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -28,14 +27,8 @@ public class AddBookController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView addBook(HttpServletRequest request,
-                                HttpServletResponse response) throws IOException {
-        String isbn = request.getParameter("isbn");
-        String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
-        String author = request.getParameter("author");
-
-        bookRepository.addBook(new Book(isbn, name, price, author));
+    public ModelAndView addBook(@ModelAttribute Book book) throws IOException {
+        bookRepository.addBook(book);
         return new ModelAndView("redirect:/");
 
     }
