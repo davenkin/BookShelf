@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/davenkin/BookShelf.svg?branch=master)](https://travis-ci.org/davenkin/BookShelf)
+
 The BookShelf sample application.
 
 In order to run local build,please install PhantomJS on your local machine.
+
 (Code for lesson7-lesson30 is covered in BookShelf folder)
 
 BookShelf:这个是最终的涵盖所有知识点的示例网站
