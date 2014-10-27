@@ -26,10 +26,12 @@ dependencies {
     compile 'javax.servlet:servlet-api:2.5'
     compile 'com.google.guava:guava:18.0'
     compile 'org.hsqldb:hsqldb:2.3.0'
+    compile 'org.springframework:spring-jdbc:4.0.6.RELEASE'
     compile 'org.apache.commons:commons-dbcp2:2.0'
     compile 'org.springframework:spring-webmvc:4.0.6.RELEASE'
     testCompile 'junit:junit:4.11'
     acceptanceTestCompile 'org.seleniumhq.selenium:selenium-java:2.42.0'
+    acceptanceTestCompile 'com.github.detro.ghostdriver:phantomjsdriver:1.1.0'
 }
 
 
