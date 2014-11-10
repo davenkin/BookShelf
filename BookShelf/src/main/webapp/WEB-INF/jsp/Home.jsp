@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>BookShelf Home Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1，user-scalable=no">
     <link rel="stylesheet" href="<c:url value='/css/style.css' />"/>
 </head>
 <body>
